@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*border: 1px solid white;*/
+}
+
+:root {
+  --rusty: #a92500;
+  --tawny: #d45a18;
+  --midnight: #000000;
+  --ash: #afada6;
+  --powder: #fffef7;
+
+  font-size: 320px;
+}
+
+body {
+  background-color: var(--midnight);
+  overflow-x: hidden;
+}
+
+.app {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  border: 2px solid salmon;
+}
+
+.filter-rufous {
+  filter: invert(15%) sepia(68%) saturate(4238%) hue-rotate(18deg) brightness(103%) contrast(105%);
+}
+
+.filter-tawny {
+  filter: invert(41%) sepia(83%) saturate(592%) hue-rotate(340deg) brightness(91%) contrast(103%);
+}
+
+.txt-0 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--rusty);
+}
+
+.txt-1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.2rem;
+  text-align: center;
+  color: var(--rusty);
+}
