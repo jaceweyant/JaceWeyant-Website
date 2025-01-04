@@ -114,7 +114,7 @@ const Name2 = () => {
             <h1 className='j-txt jce-txt name-txt txt-0'>J</h1>
             <div className='a-or-logo-ctn'>
                 <h1 className='a-txt name-txt txt-0'>A</h1>
-                <img src="/assets/icosLogo_0.svg" className=" a-logo filter-rufous"></img>
+                <img src="JaceWeyant-Website/assets/icosLogo_0.svg" className=" a-logo filter-rufous"></img>
             </div>
             <h1 className='ce-txt jce-txt name-txt txt-0'>CE</h1>
             <h1 className='weyant-txt not-a-txt name-txt txt-0'>WEYANT</h1>

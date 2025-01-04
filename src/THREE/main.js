@@ -50,7 +50,7 @@ var nameMesh,nameMat;
 const nameLoader = new OBJLoader();
 nameLoader.load(
   // resource URL
-  "/models/icosWireframe_1.obj",
+  "JaceWeyant-Website/models/icosWireframe_1.obj",
 
   // called upon resource load
   (object) => {
