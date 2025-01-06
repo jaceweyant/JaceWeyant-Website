@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import './Menu.css';
@@ -10,7 +11,13 @@ const powder = "#fffef7";
 const Menu = (props) => {
   return (
     <nav className='menu'>
-        <ul className='menu-items'> {props.children} </ul>  
+        <div className='menu-items'>
+            
+            <MenuItem name="home" link="/" />
+            <MenuItem name="About" link="/about" />
+            <MenuItem name="projects" link="/projects" />
+            <MenuItem name="Contact" link="/contact" />
+        </div>
     </nav>
   )
 }
@@ -32,7 +39,9 @@ const MenuItem = ({name, link}) => {
     })
 
     return (
-        <button className='menu-item txt-1' href={link}>{name}</button>
+        <Link to={link}>
+            <button className={'menu-item txt-1 ' + name}>{name}</button>
+        </Link>
     )
 }
 

@@ -20,14 +20,13 @@ body {
   overflow-x: hidden;
 }
 
-.app {
+.homepage {
   display: flex;
   position: absolute;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  border: 2px solid salmon;
 }
 
 .filter-rufous {

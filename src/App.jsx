@@ -1,19 +1,17 @@
-import React from 'react';
-import Name from './components/Name.jsx';
-import {Menu, MenuItem} from './components/Menu.jsx';
+import React from 'react'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Homepage from './pages/Homepage';
+import Projects from './pages/Projects';
 
 const App = () => {
   return (
-    <div className='app'>
-      <Name />
-      <Menu>
-        <MenuItem name="Home" link="/" />
-        <MenuItem name="About" link="/about" />
-        <MenuItem name="Projects" link="/projects" />
-        <MenuItem name="Contact" link="/contact" />
-      </Menu>
-    </div>
-  )
+    <Router>
+        <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/projects" element={<Projects />} />
+        </Routes>
+    </Router>
+  );
 }
 
-export default App;
+export default App

@@ -1,0 +1,9 @@
+.projects-card {
+    display: flex;
+    justify-content: left;
+    align-items: end;
+    height: 100vh;
+    padding-left: 30px;
+    background-color: black;
+    z-index: 100;
+}

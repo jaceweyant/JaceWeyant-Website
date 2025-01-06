@@ -99,7 +99,6 @@ nameLoader.load(
     var ctrl = new MouseFX();
     window.addEventListener("mousemove", (e) => {
       ctrl.lookToPoint(e);
-      console.log(ctrl.rotation.x, ctrl.rotation.y, ctrl.rotation.z);
       object.rotation.set(ctrl.rotation.x, ctrl.rotation.y, ctrl.rotation.z);
     });
       
