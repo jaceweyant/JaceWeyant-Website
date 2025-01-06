@@ -22,17 +22,34 @@ const ScrollingPanels = () => {
 
 const Panel = ({index, text, photo}) => {
 
-    const introAnimation = () => {
-        gsap.set(".pc1", {opacity: 0.0, scale: 0.6});
-        gsap.set(".text1", {opacity: 0.0});
-        gsap.fromTo(".pc1", {opacity: 0.0, scale: 0.6},{
-            opacity: 1.0, scale: 1.0,
-            duration: 2.0, ease: "power3.inOut",
-        });
-        gsap.fromTo(".text1", {opacity: 0.0}, {
+    const firstPanelIn = (panel, index) => {
+        gsap.fromTo(".pc1", {
+            opacity: 0.0, 
+            position: "sticky",
+        }, {
+            scrollTrigger: {
+                trigger: ".sc1",
+                start: "top 25%",
+                end: "top top",
+                toggleActions: "play pause reverse pause",
+                scrub: true,
+            },
             opacity: 1.0,
-            duration: 4.0, delay: 0.0, ease: "power3.inOut",
+            position: "fixed",
         });
+    }
+
+    const nextPanelsIn = (ctn, panel) => {
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ctn,
+                start: "top bottom",
+                end: "top 75%",
+                scrub: true,
+                toggleActions: "resume pause reverse pause",
+            }
+        });
+        tl.fromTo(panel, {opacity: 0.0}, {opacity: 1.0});
     }
 
     const panelAnimation = (ctn, panel, text) => {
@@ -45,6 +62,7 @@ const Panel = ({index, text, photo}) => {
         gsap.set(text, {left: "50vw"});
 
 
+
         // next panel move up
         let tl1 = gsap.timeline({
             scrollTrigger: {
@@ -55,7 +73,7 @@ const Panel = ({index, text, photo}) => {
                 toggleActions: "resume pause reverse pause",
             }
         });
-        tl1.fromTo(panel, {opacity: 0.0,scale: 0.6},{opacity: 1.0, scale: 1.0});
+        tl1.fromTo(panel, {scale: 0.6},{scale: 1.0});
 
         // current panel rotate out
         let tl2 = gsap.timeline({
@@ -77,7 +95,17 @@ const Panel = ({index, text, photo}) => {
             zIndex: 2*(-index + 4) + 1,
         });
 
-        let tl = gsap.timeline({
+        let tl1 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".sc1",
+                start: "top 90%",
+                end: "top 10%",
+                toggleActions: "resume pause reverse pause",
+                scrub: true,
+            },
+        });
+
+        let tl2 = gsap.timeline({
             scrollTrigger: {
                 trigger: ctn,
                 start: "top 90%",
@@ -86,7 +114,8 @@ const Panel = ({index, text, photo}) => {
                 toggleActions: "resume pause reverse pause",
             }
         });
-        tl.fromTo(text, {left: "50vw", opacity: 0.0}, {left: "0vw", opacity: 1.0,});
+        if (index === 1) {tl1.fromTo(text, {top: "+=40vh", opacity: 0.0, left: "0vw"}, {opacity: 1.0, top: "-=40vh", left: "0vw"})}
+        else {tl2.fromTo(text, {left: "50vw", opacity: 0.0}, {left: "0vw", opacity: 1.0,});}
         
     }
 
@@ -109,8 +138,9 @@ const Panel = ({index, text, photo}) => {
     }
 
     useGSAP(() => {
-        introAnimation();
         gsap.registerPlugin(ScrollTrigger);
+        if (index === 1) {firstPanelIn(`.pc${index}`, index);}
+        else {nextPanelsIn(`.sc${index}`, `.pc${index}`);}
         panelAnimation(`.sc${index}`, `.pc${index}`, `.text${index}`);
         textOutAnimation(`.sc${index}`, `.text${index}`);
         textInAnimation(`.sc${index}`, `.text${index}`, index);

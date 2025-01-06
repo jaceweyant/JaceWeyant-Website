@@ -20,6 +20,8 @@ const w = window.innerWidth;
 const h = window.innerHeight;
 const renderer = new THREE.WebGLRenderer({antialias : true});
 renderer.setSize(w,h);
+renderer.domElement.style.position = "fixed";
+renderer.domElement.style.zIndex = -1;
 document.body.appendChild(renderer.domElement);
 
 // SETUP CAMERA

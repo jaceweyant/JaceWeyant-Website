@@ -7,24 +7,28 @@
 .screen-ctn {
     width: 100%;
     height: 100vh;
-    background-color: transparent;
+    top: 100vh;
 }
+
 
 .panel-ctn {
     position: fixed;
     width: calc(40vw - 40px);
-    /*height: calc(80vh - 40px);*/
     height: 100vh;
     top: calc(10vh + 20px);
     left: calc(60vw - 80px);
+    /*margin-top: -100vh;*/
     perspective: 600px;
     background-color: transparent !important;
 }
 
+.pc1 {opacity: 0.0;}
+
 .panel {
     position: absolute;
     width: 100%;
-    height: calc(80vh - 40px);
+    height: 80%;
+    /*top: 10vh;*/
     transform-style: preserve-3d;
     transform: translateX(0px) translateY(0px);
     opacity: 1.0;
@@ -33,19 +37,22 @@
 
 .title {
     position: fixed;
-    width: 50vw;
+    width: 100vw;
     height: 100vh;
     left: 55vw;
-    top: 40vh;
+    top: calc(40vh);
     margin-left: 20px;
+    opacity: 0.0;
     color: white;
     font-size: 40px;
-    text-align: center;
-    text-shadow: 0px 0px 20px white;
+    text-align: left;
+    text-shadow: 0px 0px 20px var(--tawny);
     font-size: 120px !important;
-    text-wrap: wrap;
-    overflow: hidden;
+    /*text-wrap: wrap;
+    overflow: hidden;*/
 }
+
+.text1 {opacity: 0.0;}
 
 .photo {
     width: 100%;
